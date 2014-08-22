@@ -45,6 +45,14 @@ npm install -g forever
 git clone git@github.com:ezpaarse-project/ezpaarse2log.io.git
 cd ezpaarse2log.io/
 npm install
+```
+
+
+## Configuration
+
+ezPAARSE port 
+```bash
+cd ezpaarse2log.io/
 echo "module.exports = {
   ezpaarse: 'http://127.0.0.1:40010'
 };" > ./config.local.js
