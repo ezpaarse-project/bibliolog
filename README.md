@@ -31,7 +31,7 @@ git clone https://github.com/ezpaarse-project/ezpaarse.git
 cd ezpaarse/
 git checkout `git describe --tags --abbrev=0`
 make
-echo "{ EZPAARSE_NODEJS_PORT: 40010 }" > config.local.json
+echo "{ "EZPAARSE_NODEJS_PORT": 40010 }" > config.local.json
 make start
 ```
 
