@@ -15,7 +15,7 @@ It uses
   * Linux OS
   * apt-get install curl git
   * nodejs:
-```shell
+```bash
 curl https://raw.githubusercontent.com/creationix/nvm/v0.5.1/install.sh | sh
 nvm install 0.10
 nvm use 0.10
@@ -25,9 +25,14 @@ nvm alias default 0.10
 ## Installation
 
 Install Log.io as a global command:
-```shell
+```bash
   npm install -g log.io@0.3.2
 ```
 
-Install ezpaarse2log.io :
-TODO
+Install bibliolog :
+```bash
+git clone git@github.com:ezpaarse-project/bibliolog.git
+cd bibliolog/
+git submodule init
+```
+
