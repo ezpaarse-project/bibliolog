@@ -13,7 +13,7 @@ It uses
 ## Prerequisites
 
   * 2 serveurs with Linux OS (ex: debian or ubuntu)
-    * 1st server hosts ezproxy daemons and especialy your ezproxy raw log files (server ip or hostname is: **{ezproxy-server}**)
+    * 1st server hosts ezproxy daemons and especially your ezproxy raw log files (server ip or hostname is: **{ezproxy-server}**)
     * 2nd server hosts bibliolog (server ip or hostname is: **{bibliolog-server}**)
   * Install curl and git on **{bibliolog-server}** and **{ezproxy-server}**:
 ```bash
