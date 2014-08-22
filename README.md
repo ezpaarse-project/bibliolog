@@ -8,6 +8,8 @@ How could it be useful ?
   * To help you to create or update an [ezpaarse platform analysis](http://analogist.couperin.org/platforms/)
   * To test an ezpaarse handled platforms (parsers and pkb)
 
+![Running bibliolog screenshot](https://raw.githubusercontent.com/ezpaarse-project/bibliolog/master/bibliolog.png =250x)
+
 BiblioLog uses these softwares:
   * [Log.io](http://logio.org/) for logs harvesting and for real-time viewing in the browser raw logs and usage events.
   * [ezpaarse2log.io](https://github.com/ezpaarse-project/ezpaarse2log.io) for real-time listening lines of log comming from log.io-harvester, creating ezPAARSE jobs to generate corresponding usage event and then sending all of this to log.io-server
