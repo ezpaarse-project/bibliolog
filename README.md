@@ -49,7 +49,7 @@ npm install
 
 ## Configuration
 
-### ezpaarse2log.io
+### ezpaarse2log.io (bibliolog side)
 
 ```bash
 cd ezpaarse2log.io/
@@ -72,7 +72,34 @@ echo "module.exports = {
 };" > ./config.local.js
 ```
 
-### Log.io
+### log.io-harvester (raw log server side)
+
+You have to configure ``log.io-harvester`` in order to tell it to:
+  - listen for your ezproxy(s) log file
+  - send data to the bibliolog server (port 28777)
+
+Here is a config file example which should be located at ``~/.log.io/harvester.conf``
+```javascript
+exports.config = {                                                                                      
+  nodeName: "bibliolog",                                                                                
+  logStreams: {                                                                                         
+    bibliovie:      [ "/ezproxyvie/ezproxy.log" ],                    
+    biblioplanets:  [ "/ezproxypla/ezproxy.log" ],                    
+    biblioshs:      [ "/ezproxyshs/ezproxy.log" ],                    
+    titanesciences: [ "/ezproxychim/ezproxy.log" ],
+    bibliost2i:     [ "/ezproxyst2i/ezproxy.log" ],
+    bibliosciences: [ "/ezproxybbs/ezproxy.log" ],
+    biblioinserm:   [ "/ezproxyinserm/ezproxy.log" ],
+    archivesiop:    [ "/ezproxyiop/ezproxy.log" ]
+  },
+  server: {
+    host: 'bibliolog-server',
+    port: 28777
+  }
+}
+```
+
+### log.io-server (bibliolog side)
 
 Tells to ``log.io-server`` where to listen for bibliolog raw logs + ezpaarse usage events:
 
