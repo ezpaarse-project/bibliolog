@@ -72,6 +72,34 @@ echo "module.exports = {
 };" > ./config.local.js
 ```
 
+### Log.io
+
+Tells to ``log.io-server`` where to listen for bibliolog raw logs + ezpaarse usage events:
+
+```bash
+echo "exports.config = {
+  host: '0.0.0.0',
+  port: 28778
+}" > ~/.log.io/log_server.conf
+```
+
+Then configure your ~/.log.io/web_server.conf as you want. This config file tells where the Web interface should listen and if it should be password protected or not.
+Config file example:
+```javascript
+exports.config = {
+  host: '0.0.0.0',
+  port: 50196,
+
+  // Enable HTTP Basic Authentication
+  auth: {
+    user: "BIBLIOLOG",
+    pass: "XXXX"
+  },
+}
+```
+
+Then open your browser and go to http://bibliolog-ip:50196/ and you will have the nice bibliolog interface displayed.
+
 ## Running BiblioLog
 
 ### Start
