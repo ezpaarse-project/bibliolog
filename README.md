@@ -54,6 +54,27 @@ echo "module.exports = {
 
 ### Start
 
+```bash
+./etc/init.d/bibliolog start
+```
+
 ### Status
 
+```bash
+./etc/init.d/bibliolog status
+```
+
 ### Stop
+
+```bash
+./etc/init.d/bibliolog stop
+```
+
+### Log files
+
+```bash
+tail -f ./logs/ezpaarse2log.io-stderr.log
+tail -f ./logs/ezpaarse2log.io-stdout.log
+tail -f ./logs/log.io-server-stderr.log
+tail -f ./logs/llog.io-server-stdout.log
+```
