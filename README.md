@@ -31,6 +31,6 @@ nvm alias default 0.10
 ```bash
 git clone git@github.com:ezpaarse-project/bibliolog.git
 cd bibliolog/
-git submodule init
+git clone git@github.com:ezpaarse-project/ezpaarse2log.io.git
 ```
 
