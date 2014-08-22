@@ -140,8 +140,14 @@ Then open your browser and go to http://bibliolog-ip:50196/ and you will have th
 
 ### Start
 
+On **{bibliolog-server}**:
 ```bash
 ./etc/init.d/bibliolog start
+```
+
+On **{ezproxy-server}**:
+```bash
+log-io.harvester
 ```
 
 ### Status
