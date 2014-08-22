@@ -100,6 +100,8 @@ exports.config = {
 
 Then open your browser and go to http://bibliolog-ip:50196/ and you will have the nice bibliolog interface displayed.
 
+![Running bibliolog screenshot](https://raw.githubusercontent.com/ezpaarse-project/bibliolog/master/bibliolog.png)
+
 ## Running BiblioLog
 
 ### Start
