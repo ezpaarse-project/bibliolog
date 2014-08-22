@@ -53,11 +53,11 @@ make start
 
 On **{bibliolog-server}**:
 ```bash
-git clone git@github.com:ezpaarse-project/bibliolog.git
+git clone https://github.com/ezpaarse-project/bibliolog.git
 cd bibliolog/
 npm install -g forever
 
-git clone git@github.com:ezpaarse-project/ezpaarse2log.io.git
+git clone https://github.com/ezpaarse-project/ezpaarse2log.io.git
 cd ezpaarse2log.io/
 npm install
 ```
