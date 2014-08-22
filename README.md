@@ -23,7 +23,16 @@ nvm alias default 0.10
 ```
   * Install Log.io as a global command on the server where your logs are located and on the serveur where bibliolog is installed :
 ```bash
-  npm install -g log.io@0.3.2
+npm install -g log.io@0.3.2
+```
+  * Install ezpaarse and run it :
+```bash
+git clone https://github.com/ezpaarse-project/ezpaarse.git
+cd ezpaarse/
+git checkout `git describe --tags --abbrev=0`
+make
+echo "{ EZPAARSE_NODEJS_PORT: 40010 }" > config.local.json
+make start
 ```
 
 ## Installation
