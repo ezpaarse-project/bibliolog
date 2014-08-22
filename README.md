@@ -26,7 +26,7 @@ nvm alias default 0.10
   npm install -g log.io@0.3.2
 ```
 
-## BiblioLog installation
+## Installation
 
 ```bash
 git clone git@github.com:ezpaarse-project/bibliolog.git
