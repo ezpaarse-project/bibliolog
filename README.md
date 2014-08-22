@@ -8,7 +8,7 @@ How could it be useful ?
   * To help you to create or update an [ezpaarse platform analysis](http://analogist.couperin.org/platforms/)
   * To test an ezpaarse handled platforms (parsers and pkb)
 
-![Running bibliolog screenshot](https://raw.githubusercontent.com/ezpaarse-project/bibliolog/master/bibliolog.png =250x)
+<img src="https://raw.githubusercontent.com/ezpaarse-project/bibliolog/master/bibliolog.png" height="350px" />
 
 BiblioLog uses these softwares:
   * [Log.io](http://logio.org/) for logs harvesting and for real-time viewing in the browser raw logs and usage events.
@@ -142,7 +142,9 @@ exports.config = {
 
 Then open your browser and go to http://bibliolog-ip:50196/ and you will have the nice bibliolog interface displayed.
 
-![Running bibliolog screenshot](https://raw.githubusercontent.com/ezpaarse-project/bibliolog/master/bibliolog.png)
+<p align="center">
+<img src="https://raw.githubusercontent.com/ezpaarse-project/bibliolog/master/bibliolog.png" alt="Running bibliolog screenshot" />
+</p>
 
 ## Running BiblioLog
 
