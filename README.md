@@ -12,20 +12,25 @@ It uses
 
 ## Prerequisites
 
-  * Linux OS
-  * apt-get install curl git
-  * nodejs:
+  * 2 serveurs with Linux OS (ex: debian or ubuntu)
+    * 1st server hosts ezproxy daemons and especialy your ezproxy raw log files (server ip or hostname is: **{ezproxy-server}**)
+    * 2nd server hosts bibliolog (server ip or hostname is: **{bibliolog-server}**)
+  * Install curl and git on **{bibliolog-server}** and **{ezproxy-server}**:
+```bash
+sudo apt-get install curl git
+```
+  * Install NodeJS on **{bibliolog-server}** and **{ezproxy-server}**:
 ```bash
 curl https://raw.githubusercontent.com/creationix/nvm/v0.5.1/install.sh | sh
 nvm install 0.10
 nvm use 0.10
 nvm alias default 0.10
 ```
-  * Install Log.io as a global command on the server where your logs are located and on the serveur where bibliolog is installed :
+  * Install Log.io as a global command on **{bibliolog-server}** and **{ezproxy-server}** :
 ```bash
 npm install -g log.io@0.3.2
 ```
-  * Install ezpaarse and run it :
+  * Install ezpaarse on **{bibliolog-server}** and run it :
 ```bash
 git clone https://github.com/ezpaarse-project/ezpaarse.git
 cd ezpaarse/
@@ -36,6 +41,7 @@ make start
 
 ## Installation
 
+On **{bibliolog-server}**:
 ```bash
 git clone git@github.com:ezpaarse-project/bibliolog.git
 cd bibliolog/
@@ -49,8 +55,9 @@ npm install
 
 ## Configuration
 
-### ezpaarse2log.io (bibliolog side)
+### ezpaarse2log.io
 
+On **{bibliolog-server}**:
 ```bash
 cd ezpaarse2log.io/
 echo "module.exports = {
@@ -59,12 +66,12 @@ echo "module.exports = {
   logio: {
     // listen for harvested logs
     listen: {
-      host: '127.0.0.1',  // adjust where log-io.harvester is located
+      host: '{bibliolog-server}',
       port: 28777         // this is the default log.io-harvester destination port
     },
     // broadcast to logio server daemon
     broadcast: {
-      host: '127.0.0.1',  // adjust where bibliolog (log.io-server) is located
+      host: '{bibliolog-server}',
       port: 28778         // port choosen by bibliolog where to broadcast harvested logs + ezpaarse usage events
     }
   },
@@ -74,9 +81,9 @@ echo "module.exports = {
 
 ### log.io-harvester (raw log server side)
 
-You have to configure ``log.io-harvester`` in order to tell it to:
+You have to configure ``log.io-harvester`` on **{ezproxy-server}** in order to:
   - listen for your ezproxy(s) log file
-  - send data to the bibliolog server (port 28777)
+  - send data to the **{bibliolog-server}** (port 28777)
 
 Here is a config file example which should be located at ``~/.log.io/harvester.conf``
 ```javascript
@@ -93,7 +100,7 @@ exports.config = {
     archivesiop:    [ "/ezproxyiop/ezproxy.log" ]
   },
   server: {
-    host: 'bibliolog-server',
+    host: '{bibliolog-server}',
     port: 28777
   }
 }
@@ -101,7 +108,7 @@ exports.config = {
 
 ### log.io-server (bibliolog side)
 
-Tells to ``log.io-server`` where to listen for bibliolog raw logs + ezpaarse usage events:
+On **{bibliolog-server}**, tells to ``log.io-server`` where to listen for bibliolog raw logs + ezpaarse usage events:
 
 ```bash
 echo "exports.config = {
@@ -110,7 +117,7 @@ echo "exports.config = {
 }" > ~/.log.io/log_server.conf
 ```
 
-Then configure your ~/.log.io/web_server.conf as you want. This config file tells where the Web interface should listen and if it should be password protected or not.
+Then configure your ``~/.log.io/web_server.conf`` as you want. This config file tells where the Web interface should listen and if it should be password protected or not.
 Config file example:
 ```javascript
 exports.config = {
