@@ -21,15 +21,13 @@ nvm install 0.10
 nvm use 0.10
 nvm alias default 0.10
 ```
-
-## Installation
-
-Install Log.io as a global command:
+  * Install Log.io as a global command on the server where your logs are located and on the serveur where bibliolog is installed :
 ```bash
   npm install -g log.io@0.3.2
 ```
 
-Install bibliolog :
+## BiblioLog installation
+
 ```bash
 git clone git@github.com:ezpaarse-project/bibliolog.git
 cd bibliolog/
