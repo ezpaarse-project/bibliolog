@@ -31,7 +31,6 @@ git clone https://github.com/ezpaarse-project/ezpaarse.git
 cd ezpaarse/
 git checkout `git describe --tags --abbrev=0`
 make
-echo "{ EZPAARSE_NODEJS_PORT: 40010 }" > config.local.json
 make start
 ```
 
@@ -45,10 +44,61 @@ npm install -g forever
 git clone git@github.com:ezpaarse-project/ezpaarse2log.io.git
 cd ezpaarse2log.io/
 npm install
+```
+
+
+## Configuration
+
+### ezpaarse2log.io
+
+```bash
+cd ezpaarse2log.io/
 echo "module.exports = {
-  ezpaarse: 'http://127.0.0.1:40010'
+  debug: false,
+  ezpaarse: 'http://127.0.0.1:59599', // adjust if ezpaarse is installed elsewhere
+  logio: {
+    // listen for harvested logs
+    listen: {
+      host: '127.0.0.1',  // adjust where log-io.harvester is located
+      port: 28777         // this is the default log.io-harvester destination port
+    },
+    // broadcast to logio server daemon
+    broadcast: {
+      host: '127.0.0.1',  // adjust where bibliolog (log.io-server) is located
+      port: 28778         // port choosen by bibliolog where to broadcast harvested logs + ezpaarse usage events
+    }
+  },
+  autoConnectDelay: 1000, // time to wait beetween each connection try
 };" > ./config.local.js
 ```
+
+### Log.io
+
+Tells to ``log.io-server`` where to listen for bibliolog raw logs + ezpaarse usage events:
+
+```bash
+echo "exports.config = {
+  host: '0.0.0.0',
+  port: 28778
+}" > ~/.log.io/log_server.conf
+```
+
+Then configure your ~/.log.io/web_server.conf as you want. This config file tells where the Web interface should listen and if it should be password protected or not.
+Config file example:
+```javascript
+exports.config = {
+  host: '0.0.0.0',
+  port: 50196,
+
+  // Enable HTTP Basic Authentication
+  auth: {
+    user: "BIBLIOLOG",
+    pass: "XXXX"
+  },
+}
+```
+
+Then open your browser and go to http://bibliolog-ip:50196/ and you will have the nice bibliolog interface displayed.
 
 ## Running BiblioLog
 
