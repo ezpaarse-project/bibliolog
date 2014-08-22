@@ -72,7 +72,7 @@ On **{bibliolog-server}**:
 cd ezpaarse2log.io/
 echo "module.exports = {
   debug: false,
-  ezpaarse: 'http://127.0.0.1:59599', // adjust if ezpaarse is installed elsewhere
+  ezpaarse: 'http://{bibliolog-server}:59599', // adjust if ezpaarse is installed elsewhere
   logio: {
     // listen for harvested logs
     listen: {
