@@ -174,7 +174,7 @@ log-io.harvester
 ./etc/init.d/bibliolog stop
 ```
 
-### Log files
+### Monitoring (log files)
 
 ```bash
 tail -f ./logs/ezpaarse2log.io-stderr.log
