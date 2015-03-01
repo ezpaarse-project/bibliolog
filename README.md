@@ -20,33 +20,25 @@ BiblioLog uses these softwares:
 <img src="https://docs.google.com/drawings/d/1bkxEEBL1kLzH76dkIYFzspYHOVajDjQHCijU3mxJLnM/pub?w=694&h=519" />
 </p>
 
+
 ## Prerequisites
 
-  * 2 serveurs with Linux OS (ex: debian or ubuntu)
-    * 1st server hosts ezproxy daemons and especially your ezproxy raw log files (assume that server ip or hostname is: **{ezproxy-server}**)
-    * 2nd server hosts bibliolog (assume that server ip or hostname is: **{bibliolog-server}**)
-  * Install curl and git on **{bibliolog-server}** and **{ezproxy-server}**:
+  * You already have installed ezpaarse2log.io 
+   * one server hosts ezproxy daemons and especially your ezproxy raw log files
+   * one server hosts [ezpaarse2log.io](https://github.com/ezpaarse-project/ezpaarse2log.io) see docs to install
+
+ You can install bibliolog on the ezpaarse2log.io server
+ 
+   * Install curl and git on **{bibliolog-server}** :
 ```bash
 sudo apt-get install curl git
 ```
-  * Install NodeJS on **{bibliolog-server}** and **{ezproxy-server}**:
+  * Install NodeJS on **{bibliolog-server}** :
 ```bash
 curl https://raw.githubusercontent.com/creationix/nvm/v0.5.1/install.sh | sh
 nvm install 0.10
 nvm use 0.10
 nvm alias default 0.10
-```
-  * Install Log.io as a global command on **{bibliolog-server}** and **{ezproxy-server}** :
-```bash
-npm install -g log.io@0.3.2
-```
-  * Install ezpaarse on **{bibliolog-server}** and run it :
-```bash
-git clone https://github.com/ezpaarse-project/ezpaarse.git
-cd ezpaarse/
-git checkout `git describe --tags --abbrev=0`
-make
-make start
 ```
 
 ## Installation
@@ -101,11 +93,6 @@ Then open your browser and go to http://bibliolog-ip:50196/ and you will have th
 On **{bibliolog-server}**:
 ```bash
 ./etc/init.d/bibliolog start
-```
-
-On **{ezproxy-server}**:
-```bash
-log-io.harvester
 ```
 
 ### Status
