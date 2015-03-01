@@ -57,64 +57,10 @@ git clone https://github.com/ezpaarse-project/bibliolog.git
 cd bibliolog/
 npm install -g forever
 
-git clone https://github.com/ezpaarse-project/ezpaarse2log.io.git
-cd ezpaarse2log.io/
-npm install
 ```
 
 
 ## Configuration
-
-### ezpaarse2log.io
-
-On **{bibliolog-server}**:
-```bash
-cd ezpaarse2log.io/
-echo "module.exports = {
-  debug: false,
-  ezpaarse: 'http://{bibliolog-server}:59599', // adjust if ezpaarse is installed elsewhere
-  logio: {
-    // listen for harvested logs
-    listen: {
-      host: '{bibliolog-server}',
-      port: 28777         // this is the default log.io-harvester destination port
-    },
-    // broadcast to logio server daemon
-    broadcast: {
-      host: '{bibliolog-server}',
-      port: 28778         // port choosen by bibliolog where to broadcast harvested logs + ezpaarse usage events
-    }
-  },
-  autoConnectDelay: 1000, // time to wait beetween each connection try
-};" > ./config.local.js
-```
-
-### log.io-harvester (raw log server side)
-
-You have to configure ``log.io-harvester`` on **{ezproxy-server}** in order to:
-  - listen for your ezproxy(s) log file
-  - send data to the **{bibliolog-server}** (port 28777)
-
-Here is a config file example which should be located at ``~/.log.io/harvester.conf``
-```javascript
-exports.config = {                                                                                      
-  nodeName: "bibliolog",                                                                                
-  logStreams: {                                                                                         
-    bibliovie:      [ "/ezproxyvie/ezproxy.log" ],                    
-    biblioplanets:  [ "/ezproxypla/ezproxy.log" ],                    
-    biblioshs:      [ "/ezproxyshs/ezproxy.log" ],                    
-    titanesciences: [ "/ezproxychim/ezproxy.log" ],
-    bibliost2i:     [ "/ezproxyst2i/ezproxy.log" ],
-    bibliosciences: [ "/ezproxybbs/ezproxy.log" ],
-    biblioinserm:   [ "/ezproxyinserm/ezproxy.log" ],
-    archivesiop:    [ "/ezproxyiop/ezproxy.log" ]
-  },
-  server: {
-    host: '{bibliolog-server}',
-    port: 28777
-  }
-}
-```
 
 ### log.io-server (bibliolog side)
 
@@ -177,8 +123,6 @@ log-io.harvester
 ### Monitoring (log files)
 
 ```bash
-tail -f ./logs/ezpaarse2log.io-stderr.log
-tail -f ./logs/ezpaarse2log.io-stdout.log
 tail -f ./logs/log.io-server-stderr.log
 tail -f ./logs/llog.io-server-stdout.log
 ```
